@@ -7,6 +7,9 @@
 
 require('./bootstrap');
 
+import { Form, HasError, AlertError } from 'vform';
+
+window.Form = Form;
 window.Vue = require('vue');
 
 /**
@@ -20,7 +23,12 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component(HasError.name, HasError);
+Vue.component(AlertError.name, AlertError);
+
+Vue.component('Contacts', require('./components/Contacts/Contacts.vue').default);
+Vue.component('Contact', require('./components/Contacts/Contact.vue'));
+Vue.component('New', require('./components/Contacts/New.vue'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

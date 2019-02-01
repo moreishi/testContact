@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+Route::get('/contacts', 'ContactController@index');
+Route::get('/contacts/create', 'ContactController@create')->name('create-contact');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
